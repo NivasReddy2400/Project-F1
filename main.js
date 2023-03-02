@@ -3,14 +3,14 @@ const ylabels = [];
 const names = [];
 async function getChart(){
     await getdrivers()
-    let myChart = document.getElementById('graph').getContext('2d');
+    let myChart = document.getElementById('chart').getContext('2d');
     const f1chart = new Chart(myChart,{
     type: 'bar',
     data: {
         labels:xlabels,
         datasets: [
             {
-            label: 'Formula1 Podiums at end of 22',
+            label: '' ,
             data: ylabels,
             backgroundColor: [
                 '#0600EF',
@@ -64,6 +64,14 @@ async function getChart(){
             fill:false,
         }
         ]
+    },
+    options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Formula1 Podiums as of 22'
+            }
+        }
     }
 })
 }
