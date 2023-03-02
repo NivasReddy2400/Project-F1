@@ -1,12 +1,13 @@
 const xlabels = [];
 const ylabels = [];
+const names = [];
 async function getChart(){
     await getdrivers()
     let myChart = document.getElementById('graph').getContext('2d');
     const f1chart = new Chart(myChart,{
     type: 'bar',
     data: {
-        labels: xlabels,
+        labels:xlabels,
         datasets: [
             {
             label: 'Formula1 Podiums at end of 22',
@@ -59,7 +60,8 @@ async function getChart(){
                 '#005AFF',
                 '#006F62'
             ],
-            borderWidth:0
+            borderWidth:0,
+            fill:false,
         }
         ]
     }
@@ -79,6 +81,7 @@ table.forEach(row => {
     const column = row.split(',');
     xlabels.push(column[1]);
     ylabels.push(column[5]);
+    names.push(column[0]);
 });
 console.log(xlabels,ylabels)
 }
